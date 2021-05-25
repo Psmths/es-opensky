@@ -31,7 +31,7 @@ def update_indexes():
         es.indices.create(index=flightlog_iname, body=mapping)
 
 def ingest():
-    threading.Timer(12.0, ingest).start()
+    threading.Timer(30.0, ingest).start()
 
     config = configparser.ConfigParser()
     config.read('.config')
