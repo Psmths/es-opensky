@@ -38,7 +38,6 @@ def ingest():
 
     update_indexes()
 
-    print(datetime.now().isoformat() + "    Fetching data...")
     api = OpenSkyApi()
     states = api.get_states()
 
@@ -50,6 +49,5 @@ def ingest():
         if (sv_d):
             es.index(index=flightlog_iname, body=json.dumps(sv_d))
 
-    print("Received: " + str(len(states.states)))
-
-ingest()
+if __name__ == '__main__':
+    ingest()
